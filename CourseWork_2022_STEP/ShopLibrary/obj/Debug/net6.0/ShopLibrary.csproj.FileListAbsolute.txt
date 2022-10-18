@@ -1,0 +1,12 @@
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\bin\Debug\net6.0\ShopLibrary.deps.json
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\bin\Debug\net6.0\ShopLibrary.dll
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\bin\Debug\net6.0\ShopLibrary.pdb
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.csproj.AssemblyReference.cache
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.AssemblyInfoInputs.cache
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.AssemblyInfo.cs
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.dll
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\refint\ShopLibrary.dll
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ShopLibrary.pdb
+C:\Users\Svitlana\Programierung\C#Course_project_2022\CourseWork_2022_STEP\ShopLibrary\obj\Debug\net6.0\ref\ShopLibrary.dll

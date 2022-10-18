@@ -1,0 +1,11 @@
+1.В консоль диспечера пакетов (Средства-> диспечер пакетов Nuget-> консоль диспечера пакетов)
+2. Ініціалізація database:
+Add-Migration InitialCreate
+3. Зразу після ініціалізації треба внести зміни:
+Update-Database
+4. Якщо треба внести додані властивости, то треба надати ім'я після Add-Migration:
+Add-Migration AddSomeChangesToBook
+5. Після внесення змін Update:
+Update-Database
+6. To undo this action, use Remove-Migration
+
