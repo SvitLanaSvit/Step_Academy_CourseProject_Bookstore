@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DL2PNRWHIMiGMxPSAJkE65G/5NwKvcj5/q2ZmvPZp+AHDDr9CIziqr5Q3JKtLEzh2Thm4aOt7twdAcElHRLV2A==",
+  "dgSpecHash": "iy5XeU+wy++tQBCx3DHzFyqdMnfLgI5xkNtUkpV59kM02b69UffzuksDKtYkafC9PqPRX9qd143mBBBLXr41Kw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Svitlana\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\CourseWork_2022_STEP\\CourseWork_2022_STEP.csproj",
+  "projectFilePath": "D:\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\CourseWork_2022_STEP\\CourseWork_2022_STEP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Svitlana\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Svitlana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

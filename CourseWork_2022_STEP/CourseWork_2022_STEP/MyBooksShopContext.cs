@@ -23,6 +23,8 @@ namespace CourseWork_2022_STEP
         public DbSet<ThemeOfBook> ThemeOfBooks { get; set; } = null!;
         public DbSet<User> Users { get; set; } = null!;
 
+        public DbSet<Login> Logins { get; set; } = null!;
+
         public MyBooksShopContext(DbContextOptions<MyBooksShopContext> options) : base(options) { }
     }
 }

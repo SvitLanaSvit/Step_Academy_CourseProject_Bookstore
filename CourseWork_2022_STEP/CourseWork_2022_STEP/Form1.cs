@@ -17,6 +17,7 @@ namespace CourseWork_2022_STEP
         {
             InitializeComponent();
         }
+        public static bool checkLogin = false;
 
         DbContextOptions<MyBooksShopContext> options = null!;
         string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BooksShop_Migration;Integrated Security=True;";
@@ -57,6 +58,19 @@ namespace CourseWork_2022_STEP
                 cmbThemeOfBook.DisplayMember = nameof(ThemeOfBook.Name);
                 cmbThemeOfBook.ValueMember = nameof(ThemeOfBook.Id);
                 cmbThemeOfBook.DataSource = context.ThemeOfBooks.ToList();
+            }
+
+            if (btnLogin.Text == "Log In")
+            {
+                gpbWorkWithDatabase.Enabled = false;
+                gpbWorkWithClient.Enabled = false;
+                gpbWorkWithActions.Enabled = false;
+                gpbSearchbook.Enabled = false;
+                gpbShowTopOfBuyedBooks.Enabled = false;
+                gpbWorkWithBook.Enabled = false;
+                btnShowAllData.Enabled = false;
+
+                MessageBox.Show("Log in...");
             }
         }
 
@@ -154,14 +168,14 @@ namespace CourseWork_2022_STEP
                         t.Count,
                         t.DateTime,
                         t.IsDilogy,
-                        t.IsWrittenOff                        
+                        t.IsWrittenOff
                     }).ToList();
                 dataGridViewBooks.Columns[0].Visible = false;
             }
         }
         private async void UpdateDataBaseAuthors()
         {
-            using(MyBooksShopContext context = new MyBooksShopContext(options))
+            using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
                 await context.Authors.LoadAsync();
                 dataGridViewAuthors.DataSource = null;
@@ -177,9 +191,9 @@ namespace CourseWork_2022_STEP
         }
         private async void UpdateDataBaseGenres()
         {
-            using(MyBooksShopContext context = new MyBooksShopContext(options))
+            using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
-                await context.Genres.LoadAsync();    
+                await context.Genres.LoadAsync();
                 dataGridViewGenres.DataSource = null;
                 dataGridViewGenres.DataSource = context.Genres
                     .Select(t => new
@@ -333,15 +347,15 @@ namespace CourseWork_2022_STEP
             if (formAddBook.ShowDialog() == DialogResult.OK)
             {
                 using (MyBooksShopContext context = new MyBooksShopContext(options))
-                {                  
-                    Book? bookFromDataBase =await context.Books.FirstOrDefaultAsync(t => t.Title == book.Title && t.AuthorId == book.AuthorId 
+                {
+                    Book? bookFromDataBase = await context.Books.FirstOrDefaultAsync(t => t.Title == book.Title && t.AuthorId == book.AuthorId
                     && t.PublishingHouseId == book.PublishingHouseId && t.Page == book.Page && t.Genre == book.Genre
                     && t.Year == book.Year && t.Cost == book.Cost);
-                    if(bookFromDataBase != null)
-                    {                                                                          
+                    if (bookFromDataBase != null)
+                    {
                         MessageBox.Show("The book is already exists. The book was added to the total count.");
                         bookFromDataBase.Count += book.Count;
-                        await context.SaveChangesAsync();                       
+                        await context.SaveChangesAsync();
                         UpdateDataBaseBooks();
                     }
                     else
@@ -362,7 +376,7 @@ namespace CourseWork_2022_STEP
                 using (MyBooksShopContext context = new MyBooksShopContext(options))
                 {
                     Author? authorFromDataBase = await context.Authors.FirstOrDefaultAsync
-                        (t=>t.Firstname == author.Firstname && t.Lastname == author.Lastname);
+                        (t => t.Firstname == author.Firstname && t.Lastname == author.Lastname);
                     if (authorFromDataBase != null)
                     {
                         MessageBox.Show("The author is already exists.");
@@ -415,7 +429,7 @@ namespace CourseWork_2022_STEP
                     else
                     {
                         context.PublishingHouses.Add(house);
-                        await context.SaveChangesAsync();  
+                        await context.SaveChangesAsync();
                         UpdateDataBasePublishingHauses();
                     }
                 }
@@ -430,7 +444,7 @@ namespace CourseWork_2022_STEP
                 using (MyBooksShopContext context = new MyBooksShopContext(options))
                 {
                     Town? townFromDataBase = await context.Towns.FirstOrDefaultAsync
-                        (t=>t.Name==town.Name && t.CountryId == town.CountryId);
+                        (t => t.Name == town.Name && t.CountryId == town.CountryId);
                     if (townFromDataBase != null)
                     {
                         MessageBox.Show("The town is already exists.");
@@ -453,7 +467,7 @@ namespace CourseWork_2022_STEP
             {
                 using (MyBooksShopContext context = new MyBooksShopContext(options))
                 {
-                    var name = await context.Countries.FirstOrDefaultAsync(t=> t.Name==country.Name);
+                    var name = await context.Countries.FirstOrDefaultAsync(t => t.Name == country.Name);
                     if (name != null)
                     {
                         MessageBox.Show("The country is already exists.");
@@ -608,7 +622,7 @@ namespace CourseWork_2022_STEP
                 {
                     using (MyBooksShopContext context = new MyBooksShopContext(options))
                     {
-                        PublishingHouse? house =await context.PublishingHouses.FindAsync(id);
+                        PublishingHouse? house = await context.PublishingHouses.FindAsync(id);
                         if (house != null)
                         {
                             FormAddPublishingHouse formAddPublishingHouse = new FormAddPublishingHouse(house);
@@ -681,7 +695,7 @@ namespace CourseWork_2022_STEP
                         Country? country = await context.Countries.FindAsync(id);
                         if (country != null)
                         {
-                           FormAddCountry formAddCountry = new FormAddCountry(country);
+                            FormAddCountry formAddCountry = new FormAddCountry(country);
                             if (formAddCountry.ShowDialog() == DialogResult.OK)
                             {
                                 await context.SaveChangesAsync();
@@ -1015,7 +1029,7 @@ namespace CourseWork_2022_STEP
                 if (book != null)
                     dataGridViewInfo.DataSource = book;
                 else
-                    MessageBox.Show("The book is not found.");        
+                    MessageBox.Show("The book is not found.");
             }
         }
         private void btnSearchByAuthor_Click(object sender, EventArgs e)
@@ -1023,7 +1037,7 @@ namespace CourseWork_2022_STEP
             dataGridViewInfo.DataSource = null;
             using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
-                var book = context.Books.Where(t => t.Author.Firstname == txtSearchName.Text 
+                var book = context.Books.Where(t => t.Author.Firstname == txtSearchName.Text
                 && t.Author.Lastname == txtSearchSurname.Text)
                     .Select(t => new
                     {
@@ -1098,7 +1112,7 @@ namespace CourseWork_2022_STEP
                                 UpdateDataBaseBooks();
                                 UpdateDataBaseBuyedBooks();
                             }
-                        }                        
+                        }
                     }
                 }
             }
@@ -1106,7 +1120,7 @@ namespace CourseWork_2022_STEP
             {
                 MessageBox.Show("Choose a book to buy.");
             }
-        } 
+        }
 
         //Write_off_book
         private async void btnBookWriteOff_Click(object sender, EventArgs e)
@@ -1175,7 +1189,7 @@ namespace CourseWork_2022_STEP
                 else
                     MessageBox.Show("The book is not found.");
             }
-        }       
+        }
 
         //Show by buyed books
         private void btnTopBuyedBook_Click(object sender, EventArgs e)
@@ -1184,7 +1198,7 @@ namespace CourseWork_2022_STEP
             {
                 dataGridViewInfo.DataSource = context.BuyedBooks
                     .GroupBy(t => t.Book.Title).Select(g => new { Title = g.Key, Count = g.Sum(x => x.AmountOfBuy) })
-                    .OrderByDescending(g=>g.Count).ToList();
+                    .OrderByDescending(g => g.Count).ToList();
             }
         }
         private void btnPopularAuthors_Click(object sender, EventArgs e)
@@ -1201,8 +1215,8 @@ namespace CourseWork_2022_STEP
             using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
                 dataGridViewInfo.DataSource = context.BuyedBooks.Where(t => t.DateTimeOfBuy >= DateTime.Today).Select(t => new { Genre = t.Book.Genre.Name, Amount = t.AmountOfBuy, Date = t.DateTimeOfBuy })
-                    .GroupBy(t=>t.Genre).Select(g=> new {NameOfGenre = g.Key, Count = g.Sum(x=>x.Amount)})
-                    .OrderByDescending(g=>g.Count).ToList();
+                    .GroupBy(t => t.Genre).Select(g => new { NameOfGenre = g.Key, Count = g.Sum(x => x.Amount) })
+                    .OrderByDescending(g => g.Count).ToList();
             }
         }
         private void btnPopularGenresOfWeek_Click(object sender, EventArgs e)
@@ -1244,7 +1258,7 @@ namespace CourseWork_2022_STEP
                     {
                         Book? book = await context.Books.FindAsync(id);
                         Buyer buyer = new Buyer();
-                        FormDeferredBook formDeferredBook = new FormDeferredBook(buyer,book!);
+                        FormDeferredBook formDeferredBook = new FormDeferredBook(buyer, book!);
                         if (formDeferredBook.ShowDialog() == DialogResult.OK)
                         {
                             await context.SaveChangesAsync();
@@ -1273,7 +1287,7 @@ namespace CourseWork_2022_STEP
                     && t.E_Mail == buyer.E_Mail && t.TelNummer == buyer.TelNummer);
                     if (buyerFromDataBase != null)
                     {
-                        MessageBox.Show("The buyer is already exists.");                      
+                        MessageBox.Show("The buyer is already exists.");
                     }
                     else
                     {
@@ -1370,7 +1384,7 @@ namespace CourseWork_2022_STEP
                                 books = new Dictionary<int, double>();
                                 Book? bookFromDataBase = await context.Books.FindAsync(book.Id);
                                 books.Add(bookFromDataBase!.Id, bookFromDataBase.Cost);
-                                bookFromDataBase!.Cost -= (bookFromDataBase.Cost * discount/100);
+                                bookFromDataBase!.Cost -= (bookFromDataBase.Cost * discount / 100);
                             }
                             await context.SaveChangesAsync();
                             UpdateDataBaseBooks();
@@ -1382,11 +1396,11 @@ namespace CourseWork_2022_STEP
             }
             else
             {
-                if (books.Count>0)
+                if (books.Count > 0)
                 {
                     using (MyBooksShopContext context = new MyBooksShopContext(options))
                     {
-                        foreach(var book in books)
+                        foreach (var book in books)
                         {
                             //Book? bookFromDataBase = await context.Books.FindAsync(book.Id);
                             //bookFromDataBase!.Cost = book.Cost;
@@ -1400,6 +1414,58 @@ namespace CourseWork_2022_STEP
                         nudAmountOfDiscount.Enabled = true;
                     }
                 }
+            }
+        }
+
+        //LogIn
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (btnLogin.Text == "Log In")
+            {
+                Login login = new Login();
+                FormRagistration formRagistration = new FormRagistration(login);
+                if (formRagistration.ShowDialog() == DialogResult.OK)
+                {
+                    using (MyBooksShopContext context = new MyBooksShopContext(options))
+                    {
+                        Login? loginFromDataBase = await context.Logins.FirstOrDefaultAsync(t => t.Username == login.Username);
+                        if (loginFromDataBase != null)
+                        {
+                            MessageBox.Show("The user is already exists.");
+                            formRagistration.ShowDialog();
+                        }
+                        else
+                        {
+                            context.Logins.Add(login);
+                            await context.SaveChangesAsync();
+                            MessageBox.Show("The user is registered.");
+                        }
+                    }
+                }
+
+                if (checkLogin)
+                {
+                    gpbWorkWithDatabase.Enabled = true;
+                    gpbWorkWithClient.Enabled = true;
+                    gpbWorkWithActions.Enabled = true;
+                    gpbSearchbook.Enabled = true;
+                    gpbShowTopOfBuyedBooks.Enabled = true;
+                    gpbWorkWithBook.Enabled = true;
+                    btnShowAllData.Enabled = true;
+                    btnLogin.Text = "Log Out";
+                }
+            }
+            else
+            {
+                btnLogin.Text = "Log In";
+                gpbWorkWithDatabase.Enabled = false;
+                gpbWorkWithClient.Enabled = false;
+                gpbWorkWithActions.Enabled = false;
+                gpbSearchbook.Enabled = false;
+                gpbShowTopOfBuyedBooks.Enabled = false;
+                gpbWorkWithBook.Enabled = false;
+                btnShowAllData.Enabled = false;
+                checkLogin = false;
             }
         }
     }

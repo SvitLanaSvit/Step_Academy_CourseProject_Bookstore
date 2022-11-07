@@ -217,6 +217,27 @@ namespace CourseWork_2022_STEP.Migrations
                     b.ToTable("Genres");
                 });
 
+            modelBuilder.Entity("ShopLibrary.Login", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Logins");
+                });
+
             modelBuilder.Entity("ShopLibrary.PublishingHouse", b =>
                 {
                     b.Property<int>("Id")

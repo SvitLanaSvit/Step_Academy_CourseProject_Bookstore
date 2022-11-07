@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Svitlana\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\ShopLibrary.csproj",
+      "projectUniqueName": "D:\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\ShopLibrary.csproj",
       "projectName": "ShopLibrary",
-      "projectPath": "C:\\Users\\Svitlana\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\ShopLibrary.csproj",
+      "projectPath": "D:\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\ShopLibrary.csproj",
       "packagesPath": "C:\\Users\\Svitlana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Svitlana\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\obj\\",
+      "outputPath": "D:\\Programierung\\C#Course_project_2022\\CourseWork_2022_STEP\\ShopLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Svitlana\\AppData\\Roaming\\NuGet\\NuGet.Config",
