@@ -1005,7 +1005,7 @@ namespace CourseWork_2022_STEP
         //Search
         private void btnSearchByTilte_Click(object sender, EventArgs e)
         {
-            dataGridViewInfo.DataSource = null;
+            dataGridViewBooks.DataSource = null;
             using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
                 var book = context.Books.Where(t => t.Title == txtSearchName.Text)
@@ -1027,14 +1027,14 @@ namespace CourseWork_2022_STEP
                         t.IsWrittenOff
                     }).ToList();
                 if (book != null)
-                    dataGridViewInfo.DataSource = book;
+                    dataGridViewBooks.DataSource = book;
                 else
                     MessageBox.Show("The book is not found.");
             }
         }
         private void btnSearchByAuthor_Click(object sender, EventArgs e)
         {
-            dataGridViewInfo.DataSource = null;
+            dataGridViewBooks.DataSource = null;
             using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
                 var book = context.Books.Where(t => t.Author.Firstname == txtSearchName.Text
@@ -1057,14 +1057,14 @@ namespace CourseWork_2022_STEP
                         t.IsWrittenOff
                     }).ToList();
                 if (book != null)
-                    dataGridViewInfo.DataSource = book;
+                    dataGridViewBooks.DataSource = book;
                 else
                     MessageBox.Show("The book is not found.");
             }
         }
         private void btnSearchByGenre_Click(object sender, EventArgs e)
         {
-            dataGridViewInfo.DataSource = null;
+            dataGridViewBooks.DataSource = null;
             using (MyBooksShopContext context = new MyBooksShopContext(options))
             {
                 var book = context.Books.Where(t => t.Genre.Name == txtSearchName.Text)
@@ -1087,7 +1087,7 @@ namespace CourseWork_2022_STEP
                     }).ToList();
 
                 if (book != null)
-                    dataGridViewInfo.DataSource = book;
+                    dataGridViewBooks.DataSource = book;
                 else
                     MessageBox.Show("The book is not found.");
             }
@@ -1466,6 +1466,18 @@ namespace CourseWork_2022_STEP
                 gpbWorkWithBook.Enabled = false;
                 btnShowAllData.Enabled = false;
                 checkLogin = false;
+
+                dataGridViewBooks.DataSource = null;
+                dataGridViewAuthors.DataSource = null;
+                dataGridViewGenres.DataSource = null;
+                dataGridViewPublishingH.DataSource = null;
+                dataGridViewTowns.DataSource = null;
+                dataGridViewCountries.DataSource = null;
+                dataGridViewInfo.DataSource = null;
+                dataGridViewBuyedBooks.DataSource = null;
+                dataGridViewBuyers.DataSource = null;
+                dataGridViewDeferredBooks.DataSource = null;
+                dataGridViewTheme.DataSource = null;
             }
         }
     }
