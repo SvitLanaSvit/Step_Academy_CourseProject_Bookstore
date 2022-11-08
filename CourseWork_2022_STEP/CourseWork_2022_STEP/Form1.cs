@@ -1396,14 +1396,12 @@ namespace CourseWork_2022_STEP
             }
             else
             {
-                if (/*books!=null &&*/ books.Count > 0)
+                if (books.Count > 0)
                 {
                     using (MyBooksShopContext context = new MyBooksShopContext(options))
                     {
                         foreach (var book in books)
                         {
-                            //Book? bookFromDataBase = await context.Books.FindAsync(book.Id);
-                            //bookFromDataBase!.Cost = book.Cost;
                             Book? bookFromDataBase = await context.Books.FindAsync(book.Key);
                             bookFromDataBase!.Cost = book.Value;
 
@@ -1412,7 +1410,13 @@ namespace CourseWork_2022_STEP
                         UpdateDataBaseBooks();
                         cmbThemeOfBook.Enabled = true;
                         nudAmountOfDiscount.Enabled = true;
+                        books.Clear();
                     }
+                }
+                else
+                {
+                    cmbThemeOfBook.Enabled = true;
+                    nudAmountOfDiscount.Enabled = true;
                 }
             }
         }
@@ -1453,6 +1457,17 @@ namespace CourseWork_2022_STEP
                     gpbWorkWithBook.Enabled = true;
                     btnShowAllData.Enabled = true;
                     btnLogin.Text = "Log Out";
+
+                    UpdateDataBaseBooks();
+                    UpdateDataBaseAuthors();
+                    UpdateDataBaseGenres();
+                    UpdateDataBasePublishingHauses();
+                    UpdateDataBaseTowns();
+                    UpdateDataBaseCountries();
+                    UpdateDataBaseBuyedBooks();
+                    UpdateDataBaseBuyers();
+                    UpdateDataBaseDeferredBooks();
+                    UpdateDataBaseThemes();
                 }
             }
             else

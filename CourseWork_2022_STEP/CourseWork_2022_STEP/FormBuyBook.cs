@@ -50,7 +50,12 @@ namespace CourseWork_2022_STEP
                     numUpDAmount.Enabled = false;
                     btnOk.Enabled = false;
                 }
-            }  
+            }
+
+            if (int.TryParse(numUpDAmount.Value.ToString(), out int amount))
+            {
+                lblTotalPrice.Text = String.Format("{0:0.00}", (amount * book.Price));
+            }
         }
 
         private void numUpDAmount_ValueChanged(object sender, EventArgs e)
@@ -88,7 +93,6 @@ namespace CourseWork_2022_STEP
             }
             this.DialogResult = DialogResult.OK;
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

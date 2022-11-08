@@ -23,24 +23,17 @@ namespace CourseWork_2022_STEP
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            //if (txtLoginName.Text != "" && txtPassword.Text != "" && txtConfirmPassword.Text != "")
+            if (string.Equals(txtConfirmPassword.Text, txtPassword.Text))
             {
-                if (string.Equals(txtConfirmPassword.Text, txtPassword.Text))
-                {
-                    login.Username = txtLoginName.Text;
-                    login.Password = txtPassword.Text;
-                    this.DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    MessageBox.Show("Enter confirm password!");
-                    txtConfirmPassword.Text = "";
-                }
+                login.Username = txtLoginName.Text;
+                login.Password = txtPassword.Text;
+                this.DialogResult = DialogResult.OK;
             }
-            //else
-            //{
-            //    MessageBox.Show("Enter all fields!");
-            //}
+            else
+            {
+                MessageBox.Show("Enter confirm password!");
+                txtConfirmPassword.Text = "";
+            }
         }
 
         private void btnLoginNow_Click(object sender, EventArgs e)
