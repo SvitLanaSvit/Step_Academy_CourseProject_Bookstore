@@ -23,7 +23,7 @@ namespace CourseWork_2022_STEP
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (txtLoginName.Text != "" && txtPassword.Text != "" && txtConfirmPassword.Text != "")
+            //if (txtLoginName.Text != "" && txtPassword.Text != "" && txtConfirmPassword.Text != "")
             {
                 if (string.Equals(txtConfirmPassword.Text, txtPassword.Text))
                 {
@@ -37,10 +37,10 @@ namespace CourseWork_2022_STEP
                     txtConfirmPassword.Text = "";
                 }
             }
-            else
-            {
-                MessageBox.Show("Enter all fields!");
-            }
+            //else
+            //{
+            //    MessageBox.Show("Enter all fields!");
+            //}
         }
 
         private void btnLoginNow_Click(object sender, EventArgs e)
@@ -48,6 +48,23 @@ namespace CourseWork_2022_STEP
             this.Hide();
             FormLogin login = new FormLogin();
             login.ShowDialog();
+        }
+
+        private void txtLoginName_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty( txtLoginName.Text) && !string.IsNullOrEmpty(txtPassword.Text) && !string.IsNullOrEmpty(txtConfirmPassword.Text))
+            {
+                btnRegister.Enabled = true;
+            }
+            else
+            {
+                btnRegister.Enabled = false;
+            }
+        }
+
+        private void FormRagistration_Load(object sender, EventArgs e)
+        {
+            btnRegister.Enabled = false;
         }
     }
 }

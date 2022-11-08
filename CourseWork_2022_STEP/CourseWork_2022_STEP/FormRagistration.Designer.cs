@@ -53,6 +53,7 @@
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(342, 27);
             this.txtLoginName.TabIndex = 1;
+            this.txtLoginName.TextChanged += new System.EventHandler(this.txtLoginName_TextChanged);
             // 
             // txtPassword
             // 
@@ -61,6 +62,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(342, 27);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtLoginName_TextChanged);
             // 
             // label2
             // 
@@ -78,6 +80,7 @@
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(342, 27);
             this.txtConfirmPassword.TabIndex = 5;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtLoginName_TextChanged);
             // 
             // label3
             // 
@@ -124,6 +127,7 @@
             this.Name = "FormRagistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ragistration";
+            this.Load += new System.EventHandler(this.FormRagistration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

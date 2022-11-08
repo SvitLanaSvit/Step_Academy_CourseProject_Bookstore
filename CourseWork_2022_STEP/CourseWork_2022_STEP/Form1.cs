@@ -21,7 +21,7 @@ namespace CourseWork_2022_STEP
 
         DbContextOptions<MyBooksShopContext> options = null!;
         string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BooksShop_Migration;Integrated Security=True;";
-        Dictionary<int, double> books = null!;
+        Dictionary<int, double> books = new Dictionary<int, double>();
 
         private void FormBooksShop_Load(object sender, EventArgs e)
         {
@@ -1381,7 +1381,7 @@ namespace CourseWork_2022_STEP
                         {
                             foreach (var book in bookDiscount)
                             {
-                                books = new Dictionary<int, double>();
+                                //books = new Dictionary<int, double>();
                                 Book? bookFromDataBase = await context.Books.FindAsync(book.Id);
                                 books.Add(bookFromDataBase!.Id, bookFromDataBase.Cost);
                                 bookFromDataBase!.Cost -= (bookFromDataBase.Cost * discount / 100);
@@ -1396,7 +1396,7 @@ namespace CourseWork_2022_STEP
             }
             else
             {
-                if (books.Count > 0)
+                if (/*books!=null &&*/ books.Count > 0)
                 {
                     using (MyBooksShopContext context = new MyBooksShopContext(options))
                     {
