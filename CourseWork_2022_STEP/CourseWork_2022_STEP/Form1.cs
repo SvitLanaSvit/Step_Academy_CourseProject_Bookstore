@@ -1381,7 +1381,6 @@ namespace CourseWork_2022_STEP
                         {
                             foreach (var book in bookDiscount)
                             {
-                                //books = new Dictionary<int, double>();
                                 Book? bookFromDataBase = await context.Books.FindAsync(book.Id);
                                 books.Add(bookFromDataBase!.Id, bookFromDataBase.Cost);
                                 bookFromDataBase!.Cost -= (bookFromDataBase.Cost * discount / 100);
