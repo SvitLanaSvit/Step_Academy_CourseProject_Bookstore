@@ -2,6 +2,9 @@
 ### UML_DIAGRAMM
 ![Uml_diagramm](https://github.com/SvitLanaSvit/Step_Academy_CourseProject_Bookstore/raw/main/Screenshot/Class_Diagram.jpg)
 
+### DATABASE OF BOOKSHOPSTORE
+![Database](https://github.com/SvitLanaSvit/Step_Academy_CourseProject_Bookstore/blob/main/Screenshot/Database.jpg)
+
 ### INTERFACE OF BOOKSHOPSTORE
 ![Intarface](https://github.com/SvitLanaSvit/Step_Academy_CourseProject_Bookstore/blob/main/Screenshot/Interface.jpg)
 
