@@ -1,4 +1,7 @@
 # Step_Academy_CourseProject_Bookstore
+### Presentation in Ukrainian
+[Curs_project.pdf](https://github.com/SvitLanaSvit/Step_Academy_CourseProject_Bookstore/blob/main/Screenshot/Curs_project.pdf)
+
 ### UML_DIAGRAMM
 ![Uml_diagramm](https://github.com/SvitLanaSvit/Step_Academy_CourseProject_Bookstore/raw/main/Screenshot/Class_Diagram.jpg)
 
